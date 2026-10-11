@@ -26,7 +26,7 @@ expected = {
 }
 for case, diagnostics in expected.items():
     result = subprocess.run(
-        [binary, "analyze", "repro.php"], cwd=root / case,
+        [binary, "analyze", "--reporting-format", "short", "repro.php"], cwd=root / case,
         text=True, capture_output=True,
     )
     print(f"\n== {case} ==\n{result.stdout}{result.stderr}", flush=True)
